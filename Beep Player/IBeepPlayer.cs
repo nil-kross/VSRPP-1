@@ -6,8 +6,8 @@ namespace Study
 {
     public interface IBeepPlayer
     {
-        void Play(IEnumerable<Beep> beeps);
+        void Play(BeepSong beepSong);
 
-        Task PlayAsync(IEnumerable<Beep> beeps);
+        Task PlayAsync(BeepSong beepSong);
     }
 }
