@@ -1,4 +1,5 @@
 ﻿using Study.Beeping;
+using System;
 using System.Collections.Generic;
 
 namespace Study
@@ -15,28 +16,28 @@ namespace Study
 
             { 
                 var _ = new Beep(40, 50);
-                var a = new Beep(300, 500);
-                var b = new Beep(250, 500);
-                var c = new Beep(350, 250);
+                var tuh = new Beep(300, 500);
+                var tuuh = new Beep(250, 500);
+                var tu = new Beep(350, 250);
                 var imperialMarchSong = new BeepSong(
                     "Imperial March",
                     new List<Beep>
                     {
-                        a,
+                        tuh,
                         _,
-                        a,
+                        tuh,
                         _,
-                        a,
+                        tuh,
                         _,
-                        b,
+                        tuuh,
                         _,
-                        c,
-                        a,
+                        tu,
+                        tuh,
                         _,
-                        b,
+                        tuuh,
                         _,
-                        c,
-                        a,
+                        tu,
+                        tuh,
                         _
                     }
                 );
@@ -178,6 +179,88 @@ namespace Study
                 );
 
                 beepSongs.Add(sovietAnthemSong);
+            }
+            {
+                UInt16 unhearableFrequency = 40;
+                var _ = new Beep(unhearableFrequency, 130);
+                var ___ = new Beep(unhearableFrequency, 150);
+                var furEliseSong = new BeepSong(
+                    "Fur Elise",
+                    new List<Beep>()
+                    {
+                        new Beep(659, 120),
+                        _,
+                        new Beep(622, 120),
+                        _,
+                        new Beep(659, 120),
+                        _,
+                        new Beep(622, 120),
+                        _,
+                        new Beep(659, 120),
+                        _,
+                        new Beep(494, 120),
+                        _,
+                        new Beep(587, 120),
+                        _,
+                        new Beep(523, 120),
+                        _,
+                        new Beep(440, 120),
+                        ___,
+                        new Beep(262, 120),
+                        _,
+                        new Beep(330, 120),
+                        _,
+                        new Beep(440, 120),
+                        _,
+                        new Beep(494, 120),
+                        ___,
+                        new Beep(330, 120),
+                        _,
+                        new Beep(415, 120),
+                        _,
+                        new Beep(494, 120),
+                        _,
+                        new Beep(523, 120),
+                        ___,
+                        new Beep(330, 120),
+                        _,
+                        new Beep(659, 120),
+                        _,
+                        new Beep(622, 120),
+                        _,
+                        new Beep(659, 120),
+                        _,
+                        new Beep(622, 120),
+                        _,
+                        new Beep(659, 120),
+                        _,
+                        new Beep(494, 120),
+                        _,
+                        new Beep(587, 120),
+                        _,
+                        new Beep(523, 120),
+                        _,
+                        new Beep(440, 120),
+                        ___,
+                        new Beep(262, 120),
+                        _,
+                        new Beep(330, 120),
+                        _,
+                        new Beep(440, 120),
+                        _,
+                        new Beep(494, 120),
+                        ___,
+                        new Beep(330, 120),
+                        _,
+                        new Beep(523, 120),
+                        _,
+                        new Beep(494, 120),
+                        ___,
+                        new Beep(440, 120)
+                    }
+                );
+
+                beepSongs.Add(furEliseSong);
             }
             _beepSongsEnumerable = beepSongs;
         }
