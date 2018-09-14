@@ -10,6 +10,7 @@ namespace Study
             String fileName = "kek.txt";
             Stream stream = new FileStream(fileName, FileMode.CreateNew);
             ITypeWriter typeWriter = new TypeWriter(stream);
+
             typeWriter.WriteDeclaration(new object());
         }
     }
