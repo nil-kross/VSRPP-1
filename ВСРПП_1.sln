@@ -9,7 +9,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BeepingTests", "BeepingTest
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Beep Player", "Beep Player\Beep Player.csproj", "{C0828830-A70E-4FEB-B23F-CF2AEF15E0FB}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TypeWriter", "Type\TypeWriter.csproj", "{0A27A675-B7AF-4A08-9B84-9D589E1BA4AF}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TypeWriter", "Type\TypeWriter.csproj", "{0A27A675-B7AF-4A08-9B84-9D589E1BA4AF}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Console TypeWriter", "Console TypeWriter\Console TypeWriter.csproj", "{FFD0E314-69EE-4357-8A6F-398EB9B9A8C5}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -33,6 +35,10 @@ Global
 		{0A27A675-B7AF-4A08-9B84-9D589E1BA4AF}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0A27A675-B7AF-4A08-9B84-9D589E1BA4AF}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{0A27A675-B7AF-4A08-9B84-9D589E1BA4AF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FFD0E314-69EE-4357-8A6F-398EB9B9A8C5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FFD0E314-69EE-4357-8A6F-398EB9B9A8C5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FFD0E314-69EE-4357-8A6F-398EB9B9A8C5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FFD0E314-69EE-4357-8A6F-398EB9B9A8C5}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
