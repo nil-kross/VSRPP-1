@@ -19,15 +19,15 @@ namespace Study
                 {
                     stringBuilder.Append(
                         this.GetIndents(0) +
-                        "namespace " + type.Namespace + "\n\r" +
-                        "{\n\r"
+                        "namespace " + type.Namespace + "\r\n" +
+                        "{\r\n"
                     );
                     {
                         //
                     }
                     stringBuilder.Append(
                         this.GetIndents(0) +
-                        "}\n\r"
+                        "}\r\n"
                     );
                 }
                 foreach (var a in type.GetFields())

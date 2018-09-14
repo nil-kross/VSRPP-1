@@ -1,5 +1,4 @@
 ﻿using System;
-using System.IO;
 
 namespace Study
 {
@@ -7,11 +6,14 @@ namespace Study
     {
         static void Main(string[] args)
         {
-            String fileName = "kek.txt";
-            Stream stream = new FileStream(fileName, FileMode.CreateNew);
-            ITypeWriter typeWriter = new TypeWriter(stream);
+            Object @object = new object();
+            ITypeWriter typeWriter = new TypeWriter(
+                new DeclarationWriter(),
+                new DeclarationFileStreamFactory(@object.GetType().Name), 
+                new DeclarationStreamWriter()                
+            );
 
-            typeWriter.WriteDeclaration(new object());
+            typeWriter.WriteDeclaration(@object);
         }
     }
 }

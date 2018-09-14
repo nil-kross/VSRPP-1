@@ -1,6 +1,5 @@
 ﻿using System;
 using System.IO;
-using System.Text;
 
 namespace Study
 {
@@ -8,26 +7,31 @@ namespace Study
         : ITypeWriter
     {
         private Stream _stream;
+        private IDeclarationWriter _declarationWriter;
+        private IDeclarationStreamFactory _declarationStreamFactory;
+        private IDeclarationStreamWriter _declarationStreamWriter;
 
         public TypeWriter(
-            Stream stream
+            IDeclarationWriter declarationWriter,
+            IDeclarationStreamFactory declarationStreamFactory,
+            IDeclarationStreamWriter declarationStreamWriter
         ) { 
-            _stream = stream;
+            _declarationWriter = declarationWriter;
+            _declarationStreamFactory = declarationStreamFactory;
+            _declarationStreamWriter = declarationStreamWriter;
         }
 
         public void WriteDeclaration(Object instance)
         {
-            String declarationString = null;
-            
-            foreach (Char @char in declarationString)
-            {
-                Byte[] charBytes = BitConverter.GetBytes(@char);
-                _stream.Write(
-                    charBytes,
-                    0,
-                    charBytes.Length
-                );
-            }
+            String declarationString;
+            Type type = instance.GetType();
+
+            _stream = _declarationStreamFactory.GetStream();
+            declarationString = _declarationWriter.GetDeclaration(type);
+            _declarationStreamWriter.Write(
+                _stream, 
+                declarationString
+            );
         }
     }
 }
