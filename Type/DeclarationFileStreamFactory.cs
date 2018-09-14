@@ -6,25 +6,38 @@ namespace Study
     public class DeclarationFileStreamFactory
         : IDeclarationStreamFactory
     {
-        private String _fileNameString;
+        private String _classNameString;
 
-        public DeclarationFileStreamFactory(String className)
+        public String ClassName 
         {
-            _fileNameString = className + ".cs";
+            get {
+                return _classNameString;
+            }
+            set {
+                _classNameString = value;
+            }
         }
 
         public Stream GetStream()
         {
-            Stream stream;
-
-            if (File.Exists(_fileNameString))
+            Stream stream = null;
+            
+            if (_classNameString != null)
             {
-                File.Delete(_fileNameString);
+                String fileNameString = String.Format(
+                    "{0}.cs",
+                    _classNameString
+                );
+
+                    if (File.Exists(fileNameString))
+                    {
+                        File.Delete(fileNameString);
+                    }
+                    stream = new FileStream(
+                        fileNameString,
+                        FileMode.CreateNew
+                    );
             }
-            stream = new FileStream(
-                _fileNameString,
-                FileMode.CreateNew
-            );
 
             return stream;
         }

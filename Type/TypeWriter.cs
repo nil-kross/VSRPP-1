@@ -26,6 +26,7 @@ namespace Study
             String declarationString;
             Type type = instance.GetType();
 
+            _declarationStreamFactory.ClassName = type.Name;
             _stream = _declarationStreamFactory.GetStream();
             declarationString = _declarationWriter.GetDeclaration(type);
             _declarationStreamWriter.Write(
