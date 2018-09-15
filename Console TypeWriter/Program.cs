@@ -12,7 +12,7 @@ namespace Study
 
         public static void A()
         {
-            Object instance = new object();
+            Object instance = new Object();
             ITypeWriter typeWriter = new FileTypeWriterFactory().TypeWriter;
 
             typeWriter.WriteDeclaration(instance);
@@ -20,7 +20,7 @@ namespace Study
 
         public static void B()
         {
-            Object o = new Object();
+            Object o = new DeclarationWriter();
             Type t = o.GetType();
             t = t;
         }

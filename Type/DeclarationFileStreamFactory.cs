@@ -29,14 +29,14 @@ namespace Study
                     _classNameString
                 );
 
-                    if (File.Exists(fileNameString))
-                    {
-                        File.Delete(fileNameString);
-                    }
-                    stream = new FileStream(
-                        fileNameString,
-                        FileMode.CreateNew
-                    );
+                if (File.Exists(fileNameString))
+                {
+                    File.Delete(fileNameString);
+                }
+                stream = new FileStream(
+                    fileNameString,
+                    FileMode.CreateNew
+                );
             }
 
             return stream;
