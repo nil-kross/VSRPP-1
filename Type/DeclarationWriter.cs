@@ -7,15 +7,14 @@ namespace Study
     public class DeclarationWriter
         : IDeclarationWriter
     {
-        public String GetDeclaration(Object instance)
+        public String GetDeclaration(Type type)
         {
             String declarationString = null;
 
-            if (instance != null)
+            if (type != null)
             {
                 StringBuilder stringBuilder = new StringBuilder();
                 Int16 indentsLevel = 0;
-                Type type = instance.GetType();
 
                 // Namespace
                 {
@@ -80,12 +79,42 @@ namespace Study
                         );
                         foreach (MethodInfo method in type.GetMethods())
                         {
+                            bool isFirst = true;
+                            StringBuilder parametersStringBuilder = new StringBuilder("");
+
+                            foreach (ParameterInfo parameter in method.GetParameters())
+                            {
+                                parametersStringBuilder.Append(
+                                    String.Format(
+                                        "{2}{0} {1}",
+                                        parameter.ParameterType.Name,
+                                        parameter.Name,
+                                        isFirst ? "" : ", "
+                                    )
+                                );
+                                isFirst = false;
+                            }
+                            foreach (CustomAttributeData attribute in method.CustomAttributes)
+                            {
+                                stringBuilder.Append(
+                                    String.Format(
+                                        "{1}[{0}]\r\n",
+                                        attribute.AttributeType.Name.Replace("Attribute", ""),
+                                        this.GetIndents(2)
+                                    )
+                                );
+                            }
                             stringBuilder.Append(
                                 String.Format(
-                                    "{0}{1} {2};\r\n",
+                                    "{0}{3} {5}{4}{6} {1}{2}({7});\r\n",
                                     this.GetIndents(2),
                                     method.Name,
-                                    method.MemberType
+                                    "",
+                                    method.IsPublic ? "public" : method.IsPrivate ? "private" : "protected",
+                                    method.IsVirtual ? "virtual" + ' ' : "",
+                                    method.IsStatic ? "static" + ' ' : "",
+                                    method.ReturnType.Name,
+                                    parametersStringBuilder.ToString()
                                 )
                             );
                         }
